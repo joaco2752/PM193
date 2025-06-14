@@ -14,12 +14,14 @@ const Texto =()=>{
 
 /* Zona2: Main */
 export default function App() {
+  const [botonTexto,setBotonTexto]= useState('Presionar')
+  const actualizaBotonTexto =()=>{setBotonTexto('Boton Presionado')}
   return (
     <View style={styles.container}>
       <Texto>Hola</Texto>
       <Texto>mundo</Texto>
       <Texto>React Native</Texto>
-      <Button title="Presionar"></Button>
+      <Button title={botonTexto} onPress={actualizaBotonTexto}></Button>
       <StatusBar style="auto" />
     </View>
   );
