@@ -2,11 +2,13 @@
 /* ZONa1 Importaciones: */
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
 
-const Texto=(props)=>{
-  const{contenido}=props
+const Texto =()=>{
+  const [contenido,setContenido]= useState('Hola Mundo')
+  const actualizaTexto =()=>{setContenido('Estado Modificado')}
   return(
-    <Text>{contenido}</Text>
+    <Text onPress={actualizaTexto}>{contenido}</Text>
   )
 }
 
@@ -14,9 +16,9 @@ const Texto=(props)=>{
 export default function App() {
   return (
     <View style={styles.container}>
-      <Texto contenido="Hola"></Texto>
-      <Texto contenido="Mundo"></Texto>
-      <Texto contenido="ReactNative"></Texto>
+      <Texto>Hola</Texto>
+      <Texto>mundo</Texto>
+      <Texto>React Native</Texto>
       <Button title="Presionar"></Button>
       <StatusBar style="auto" />
     </View>
