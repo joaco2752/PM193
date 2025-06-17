@@ -4,11 +4,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import React, { useState } from 'react';
 
-const Texto =()=>{
+const Texto =({style})=>{
   const [contenido,setContenido]= useState('Hola Mundo')
   const actualizaTexto =()=>{setContenido('Estado Modificado')}
   return(
-    <Text onPress={actualizaTexto}>{contenido}</Text>
+    <Text style={[styles.text,style]} onPress={actualizaTexto}>{contenido}</Text>
   )
 }
 
@@ -18,10 +18,11 @@ export default function App() {
   const actualizaBotonTexto =()=>{setBotonTexto('Boton Presionado')}
   return (
     <View style={styles.container}>
-      <Texto>Hola</Texto>
-      <Texto>mundo</Texto>
-      <Texto>React Native</Texto>
-      <Button title={botonTexto} onPress={actualizaBotonTexto}></Button>
+
+    
+      <Texto style={styles.azul}>Hola</Texto>
+      <Texto style={styles.verde}>mundo</Texto>
+      <Texto style={styles.negro}>React Native</Texto>
       <StatusBar style="auto" />
     </View>
   );
@@ -32,7 +33,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'strech',
     justifyContent: 'center',
   },
+  //Clase Text que contiene color de texto
+  text:{
+    color:'white',
+    fontSize:'27',
+    
+
+  },
+  azul:{backgroundColor:'blue'},
+  verde:{backgroundColor:'green'},
+  negro:{backgroundColor:'black'}
 });
