@@ -1,27 +1,53 @@
-/* Zona 1: Lugar de las importaciones */  
-import {View, StatusBar} from 'react-native';
-import React, { useEffect,useState } from 'react';
-import SplashScreen from './src/screens/SplashScreen';
-import HomeScreen from './src/screens/HomeScreen';
+import {
+    ScrollView, // hacer deslizable
+    StatusBar,  // barra de estado
+    StyleSheet, // estilos
+    Text,
+} from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useRef } from 'react';
 
+const App = () => {
+    
+    return (
+        <SafeAreaProvider>
+            <ScrollView style={styles.container} edges={['top']}>
+                <ScrollView style={styles.scrollView} horizontal={true}>
+                    <Text style={styles.text}>
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                        Utiliza este espacio para toda la pantalla
+                    </Text>
+                </ScrollView>
+            </ScrollView>
+        </SafeAreaProvider>
+    );
+};
 
-/* Zona 2: Main */
-export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
+// Definimos los estilos con StyleSheet
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,                              // Ocupa todo el alto disponible de la pantalla
+        paddingTop: StatusBar.currentHeight, // Evita que el contenido se solape con la barra de estado
+    },
+    scrollView: {
+        backgroundColor: 'green',            // Fondo verde para visualizar el área del ScrollView
+    },
+    text: {
+        fontSize: 42,                         // Texto grande
+        padding: 12,                          // Espaciado interno
+    },
+});
 
-  useEffect(()=> {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500);
-
-    return ()=> clearTimeout(timer);
-  }, []);
-
-  return (
-    <View style={{flex: 1}}>
-      <StatusBar hidden/>
-      {isLoading ? <SplashScreen /> : <HomeScreen />}
-    </View>
-  );
-}
-
+export default App;
