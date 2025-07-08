@@ -16,7 +16,6 @@ export default function App() {
       .then(data => setPersonas(data)) // guardamos los datos en setPersonas
       .catch(err => console.error(err)); //sino muestra el error
   }, []);
-
   // Datos para FlatList: mostramos solo nombres
   // Usamos map para ir trayendo los datos y transformarlos en un nuevo arreglo
   const flatData = personas.map((p, index) => ({
