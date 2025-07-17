@@ -1,9 +1,11 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import Home from './screens/home';
-import Profile from './screens/profile';
 import Settings from './screens/settings';
+import PerfilStack from './screens/perfilStack'; // 👈 Nuevo
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +15,7 @@ export default function App() {
       <Tab.Navigator
         initialRouteName="Home"
         screenOptions={({ route }) => ({
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color, size }) => {
             let iconName;
             if (route.name === 'Home') {
@@ -27,11 +29,11 @@ export default function App() {
           },
           tabBarActiveTintColor: '#007BFF',
           tabBarInactiveTintColor: 'gray',
-          tabBarStyle: { paddingBottom: 5, height: 60 },
+          tabBarStyle: { height: 60 },
         })}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Profile" component={PerfilStack} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
