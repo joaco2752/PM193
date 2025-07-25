@@ -4,7 +4,9 @@
     "slug": "tabsnavigation",
     "version": "1.0.0",
     "orientation": "portrait",
-    "platforms": ["android"],
+    "platforms": [
+      "android"
+    ],
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,9 +16,16 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "package": "com.joaco2752.tabsnavigation"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9410ee32-57db-4dfb-a7b0-8c34f81abb2a"
+      }
     }
   }
 }
