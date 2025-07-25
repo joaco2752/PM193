@@ -9,6 +9,7 @@ buildscript {
     classpath('com.android.tools.build:gradle')
     classpath('com.facebook.react:react-native-gradle-plugin')
     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
+    implementation "androidx.core:core:1.12.0"
   }
 }
 
@@ -26,6 +27,13 @@ allprojects {
       // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
       url(reactNativeAndroidDir)
     }
+
+    configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core:1.12.0'
+    }
+}
+
 
     google()
     mavenCentral()
